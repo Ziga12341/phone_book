@@ -3,4 +3,4 @@
 
 ## TO DO
 
-whrite readme
+write readme
