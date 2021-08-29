@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #Phone Book
 
 ## What you need to do
@@ -20,11 +19,5 @@
 
 You may have problem importing such a big .vcf file in icloud-contacts.
 Split file in smaller files like: clinic_name_1/3,... 
-=======
-# phone_book
 
 
-## TO DO
-
-write readme
->>>>>>> 37bd856c696efb93314874ea25e615fd321262ad
