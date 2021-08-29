@@ -1,4 +1,7 @@
 .DS_store
 .project
 *.pyc
-.idea
+.idea/
+venv/
+__pycache__/
+WRL2443.tmp
