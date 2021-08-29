@@ -1,17 +1,17 @@
-from url_lib import phone_book_name, phone_book_contacts, clinic_name
+from scraper import phone_book_contacts
 
 
 """
-Transfer data from dict format to iphone conntact import form
+Transfer data from dict format to iphone conntact import form which is  than used in .vcf
 
 """
 
 
 def iphone_vcard(url, file_name, phone_book_name):
-    datoteka = open(file_name, "a", encoding="UTF-8")
+    file = open(file_name, "a", encoding="UTF-8")
     phone_book_name = phone_book_name(url)
     contacts = phone_book_contacts(url)
-    for ime,tel in contacts.items():
+    for name,tel in contacts.items():
         if len(tel) == 1:
             tel1 = tel[0]
             if tel1:
@@ -19,8 +19,8 @@ def iphone_vcard(url, file_name, phone_book_name):
                     pass
                 else:
                     tel1 = str("01 522 ") + tel1
-            datoteka.write(
-                f"BEGIN:VCARD\nVERSION:3.0\nN:{ime };\nFN:{ime };\nORG:{ phone_book_name};\nTEL;TYPE=CELL;TYPE=pref;TYPE=VOICE:{tel1}\nPRODID:-//Apple Inc.//iCloud Web Address Book 2020B67//EN\nREV:2020-11-10T01:12:09Z\nEND:VCARD\n")
+            file.write(
+                f"BEGIN:VCARD\nVERSION:3.0\nN:{name };\nFN:{name };\nORG:{ phone_book_name};\nTEL;TYPE=CELL;TYPE=pref;TYPE=VOICE:{tel1}\nPRODID:-//Apple Inc.//iCloud Web Address Book 2020B67//EN\nREV:2020-11-10T01:12:09Z\nEND:VCARD\n")
         if len(tel) == 2:
             tel1 = tel[0]
             if tel1:
@@ -34,8 +34,8 @@ def iphone_vcard(url, file_name, phone_book_name):
                     pass
                 else:
                     tel2 = str("01 522 ") + tel2
-            datoteka.write(
-                f"BEGIN:VCARD\nVERSION:3.0\nN:{ime};\nFN:{ime};\nORG:{ phone_book_name};\nTEL;TYPE=CELL;TYPE=pref;TYPE=VOICE:{tel2}\nTEL;TYPE=HOME;TYPE=CELL;TYPE=VOICE:{tel1}\nPRODID:-//Apple Inc.//iCloud Web Address Book 2020B67//EN\nREV:2020-11-10T01:12:09Z\nEND:VCARD\n")
+            file.write(
+                f"BEGIN:VCARD\nVERSION:3.0\nN:{name};\nFN:{name};\nORG:{ phone_book_name};\nTEL;TYPE=CELL;TYPE=pref;TYPE=VOICE:{tel2}\nTEL;TYPE=HOME;TYPE=CELL;TYPE=VOICE:{tel1}\nPRODID:-//Apple Inc.//iCloud Web Address Book 2020B67//EN\nREV:2020-11-10T01:12:09Z\nEND:VCARD\n")
         if len(tel) == 3:
             tel1 = tel[0]
             if tel1:
@@ -55,8 +55,8 @@ def iphone_vcard(url, file_name, phone_book_name):
                     pass
                 else:
                     tel3 = str("01 522 ") + tel3
-            datoteka.write(
-                f"BEGIN:VCARD\nVERSION:3.0\nN:{ime};\nFN:{ime};\nORG:{ phone_book_name};\nTEL;TYPE=CELL;TYPE=pref;TYPE=VOICE:{tel2}\nTEL;TYPE=HOME;TYPE=CELL;TYPE=VOICE:{tel3}\nTEL;TYPE=WORK;TYPE=CELL;TYPE=VOICE:{tel1}\nPRODID:-//Apple Inc.//iCloud Web Address Book 2020B67//EN\nREV:2020-11-10T01:12:09Z\nEND:VCARD\n")
+            file.write(
+                f"BEGIN:VCARD\nVERSION:3.0\nN:{name};\nFN:{name};\nORG:{ phone_book_name};\nTEL;TYPE=CELL;TYPE=pref;TYPE=VOICE:{tel2}\nTEL;TYPE=HOME;TYPE=CELL;TYPE=VOICE:{tel3}\nTEL;TYPE=WORK;TYPE=CELL;TYPE=VOICE:{tel1}\nPRODID:-//Apple Inc.//iCloud Web Address Book 2020B67//EN\nREV:2020-11-10T01:12:09Z\nEND:VCARD\n")
         if len(tel) == 4:
             tel1 = tel[0]
             if tel1:
@@ -82,8 +82,8 @@ def iphone_vcard(url, file_name, phone_book_name):
                     pass
                 else:
                     tel4 = str("01 522 ") + tel4
-            datoteka.write(
-                f"BEGIN:VCARD\nVERSION:3.0\nN:{ime};\nFN:{ime};\nORG:{ phone_book_name};\nTEL;TYPE=CELL;TYPE=pref;TYPE=VOICE:{tel2}\nTEL;TYPE=HOME;TYPE=CELL;TYPE=VOICE:{tel3}\nTEL;TYPE=WORK;TYPE=CELL;TYPE=VOICE:{tel4}\nTEL;TYPE=IPHONE;TYPE=CELL;TYPE=VOICE:{tel1}\nPRODID:-//Apple Inc.//iCloud Web Address Book 2020B67//EN\nREV:2020-11-10T01:12:09Z\nEND:VCARD\n")
+            file.write(
+                f"BEGIN:VCARD\nVERSION:3.0\nN:{name};\nFN:{name};\nORG:{ phone_book_name};\nTEL;TYPE=CELL;TYPE=pref;TYPE=VOICE:{tel2}\nTEL;TYPE=HOME;TYPE=CELL;TYPE=VOICE:{tel3}\nTEL;TYPE=WORK;TYPE=CELL;TYPE=VOICE:{tel4}\nTEL;TYPE=IPHONE;TYPE=CELL;TYPE=VOICE:{tel1}\nPRODID:-//Apple Inc.//iCloud Web Address Book 2020B67//EN\nREV:2020-11-10T01:12:09Z\nEND:VCARD\n")
         if len(tel) == 5:
             tel1 = tel[0]
             if tel1:
@@ -115,7 +115,7 @@ def iphone_vcard(url, file_name, phone_book_name):
                     pass
                 else:
                     tel5 = str("01 522 ") + tel5
-            datoteka.write(
-                f"BEGIN:VCARD\nVERSION:3.0\nN:{ime};\nFN:{ime};\nORG:{ phone_book_name};\nTEL;TYPE=CELL;TYPE=pref;TYPE=VOICE:{tel2}\nTEL;TYPE=HOME;TYPE=CELL;TYPE=VOICE:{tel3}\nTEL;TYPE=WORK;TYPE=CELL;TYPE=VOICE:{tel4}\nTEL;TYPE=IPHONE;TYPE=CELL;TYPE=VOICE:{tel5}\nTEL;TYPE=MAIN;TYPE=CELL;TYPE=VOICE:{tel1}\nPRODID:-//Apple Inc.//iCloud Web Address Book 2020B67//EN\nREV:2020-11-10T01:12:09Z\nEND:VCARD\n")
-    datoteka.close()
+            file.write(
+                f"BEGIN:VCARD\nVERSION:3.0\nN:{name};\nFN:{name};\nORG:{ phone_book_name};\nTEL;TYPE=CELL;TYPE=pref;TYPE=VOICE:{tel2}\nTEL;TYPE=HOME;TYPE=CELL;TYPE=VOICE:{tel3}\nTEL;TYPE=WORK;TYPE=CELL;TYPE=VOICE:{tel4}\nTEL;TYPE=IPHONE;TYPE=CELL;TYPE=VOICE:{tel5}\nTEL;TYPE=MAIN;TYPE=CELL;TYPE=VOICE:{tel1}\nPRODID:-//Apple Inc.//iCloud Web Address Book 2020B67//EN\nREV:2020-11-10T01:12:09Z\nEND:VCARD\n")
+    file.close()
 

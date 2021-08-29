@@ -1,5 +1,8 @@
 import urllib.request
 
+"""
+Go through each page of intranet  phone book and extract name, position and phone numbers of each person
+"""
 
 def phone_book_scrape(url):
     socket = urllib.request.urlopen(url)
@@ -19,8 +22,8 @@ def phone_book_scrape(url):
 
 
         if line.startswith("     <td class='e'>"):
-            opis = line.split("<")[1]
-            opis = opis.replace("td class='e'>", " ")
+            position = line.split("<")[1]
+            position = position.replace("td class='e'>", " ")
 
 
 
@@ -43,12 +46,12 @@ def phone_book_scrape(url):
             tel = tel.replace("multiton: ", "")
             tel = tel.replace("zunanja: ", "")
             tel = tel.split(",")
-            if name_surname == opis:
-                opis = ""
+            if name_surname == position:
+                position = ""
 
 
 
-            phone_book_contacts[name_surname + opis] = tel
+            phone_book_contacts[name_surname + position] = tel
             name_surname = ""
 
 
