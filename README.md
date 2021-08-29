@@ -1,4 +1,4 @@
-#Phone Book
+# Phone Book
 
 ## What you need to do
 
@@ -15,7 +15,7 @@
 - open [icloud](icloud.com); go to contacts; for your personal contact create folder (tap + symbol) move your personal contacts in this folder; for each clinic create new folder and import specific file.vcf in this folder on icloud
 
 
-##Isues
+## Isues
 
 You may have problem importing such a big .vcf file in icloud-contacts.
 Split file in smaller files like: clinic_name_1/3,... 
